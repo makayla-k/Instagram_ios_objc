@@ -20,6 +20,7 @@
 		E3D00A14284539470038B5AC /* instagram_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D00A13284539470038B5AC /* instagram_objcTests.m */; };
 		E3D00A1E284539470038B5AC /* instagram_objcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D00A1D284539470038B5AC /* instagram_objcUITests.m */; };
 		E3D00A20284539470038B5AC /* instagram_objcUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D00A1F284539470038B5AC /* instagram_objcUITestsLaunchTests.m */; };
+		E3D00A2F2845A4D10038B5AC /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D00A2E2845A4D10038B5AC /* Keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		E3D00A19284539470038B5AC /* instagram_objcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instagram_objcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D00A1D284539470038B5AC /* instagram_objcUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = instagram_objcUITests.m; sourceTree = "<group>"; };
 		E3D00A1F284539470038B5AC /* instagram_objcUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = instagram_objcUITestsLaunchTests.m; sourceTree = "<group>"; };
+		E3D00A2E2845A4D10038B5AC /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +118,6 @@
 				BDC3AAA55AC1494A794A5F53 /* Pods-instagram_objcTests.debug.xcconfig */,
 				1D1558E93FDE5B09BF0F6125 /* Pods-instagram_objcTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,6 +157,7 @@
 				E3D00A05284539460038B5AC /* LaunchScreen.storyboard */,
 				E3D00A08284539460038B5AC /* Info.plist */,
 				E3D00A09284539460038B5AC /* main.m */,
+				E3D00A2E2845A4D10038B5AC /* Keys.plist */,
 			);
 			path = instagram_objc;
 			sourceTree = "<group>";
@@ -285,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D00A2F2845A4D10038B5AC /* Keys.plist in Resources */,
 				E3D00A07284539460038B5AC /* LaunchScreen.storyboard in Resources */,
 				E3D00A04284539460038B5AC /* Assets.xcassets in Resources */,
 				E3D00A02284539420038B5AC /* Main.storyboard in Resources */,
