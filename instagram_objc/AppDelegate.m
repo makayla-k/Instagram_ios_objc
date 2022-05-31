@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -13,10 +14,46 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+//    get values from keys file
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    
     // Override point for customization after application launch.
+    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = [dict objectForKey: @"application_Id"];
+        configuration.clientKey = [dict objectForKey: @"client_Key"];
+        configuration.server = @"https://parseapi.back4app.com/";
+    }]];
+    
+    [self saveInstallationObject];
+    
+//    create a test user
+//    PFUser *newUser = [PFUser user];
+//    newUser.username = @"makayla";
+//    newUser.password = @"makayla";
+//    newUser.email = @"makayla@codepath.org";
+//    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"Object saved!");
+//        } else {
+//            NSLog(@"Error: %@", error.description);
+//        }
+//    }];
+
     return YES;
+}
+
+-(void)saveInstallationObject{
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            NSLog(@"You have successfully connected your app to Back4App!");
+        }else{
+            NSLog(@"installation save failed %@",error.debugDescription);
+        }
+    }];
 }
 
 
