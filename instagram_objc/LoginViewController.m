@@ -33,12 +33,12 @@
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
-            //    alert if error when signing up
-                UIAlertController *signupErroralert = [UIAlertController alertControllerWithTitle:@"Error"message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
-                // create an OK action
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                }];
-                [signupErroralert addAction:okAction];
+        //    alert if error when signing up
+            UIAlertController *signupErroralert = [UIAlertController alertControllerWithTitle:@"Error"message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [signupErroralert addAction:okAction];
             
             [self presentViewController:signupErroralert animated:YES completion:^{
             // optional code for what happens after the alert controller has finished presenting
@@ -53,9 +53,9 @@
             }];
             [signedupalert addAction:okAction];
         
-        [self presentViewController:signedupalert animated:YES completion:^{
-        // optional code for what happens after the alert controller has finished presenting
-        }];
+            [self presentViewController:signedupalert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+            }];
             NSLog(@"User registered successfully");
             
             // manually segue to logged in view
@@ -69,8 +69,28 @@
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
+        //    alert if error when signing up
+            UIAlertController *signupErroralert = [UIAlertController alertControllerWithTitle:@"Error"message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [signupErroralert addAction:okAction];
+            
+            [self presentViewController:signupErroralert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+            }];
+            
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
+            UIAlertController *signedupalert = [UIAlertController alertControllerWithTitle:@"Successful!"message:@"User registered" preferredStyle:(UIAlertControllerStyleAlert)];
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [signedupalert addAction:okAction];
+        
+            [self presentViewController:signedupalert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+            }];
             NSLog(@"User logged in successfully");
             
             // display view controller that needs to shown after successful login
@@ -88,40 +108,12 @@
 }
 
 - (IBAction)onSignUp:(id)sender {
-//    UI alert
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Text Required"message:@"Please make sure username / pasword fields are filled in"preferredStyle:(UIAlertControllerStyleAlert)];
-    // create an OK action
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    [alert addAction:okAction];
+    [self registerUser];
     
-//    check if text fields are empty
-    if( ![self checkIfEmpty:self.usernameField.text] || ![self checkIfEmpty:self.passwordField.text]){
-        [self registerUser];
-    }
-    else{
-        [self presentViewController:alert animated:YES completion:^{
-        // optional code for what happens after the alert controller has finished presenting
-    }];
-    }
 }
+
 - (IBAction)onLogin:(id)sender {
-    //    UI alert
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Text Required"message:@"Please make sure username / pasword fields are filled in"preferredStyle:(UIAlertControllerStyleAlert)];
-        // create an OK action
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        [alert addAction:okAction];
-        
-    //    check if text fields are empty
-        if( ![self checkIfEmpty:self.usernameField.text] || ![self checkIfEmpty:self.passwordField.text]){
-            [self loginUser];
-        }
-        else{
-            [self presentViewController:alert animated:YES completion:^{
-            // optional code for what happens after the alert controller has finished presenting
-        }];
-        }
+    [self loginUser];
 }
 
 /*
