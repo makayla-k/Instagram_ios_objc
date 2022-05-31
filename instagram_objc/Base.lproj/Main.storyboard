@@ -17,28 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y19-lM-pE9">
-                                <rect key="frame" x="8" y="294" width="398" height="64"/>
+                                <rect key="frame" x="8" y="194" width="398" height="64"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uK2-VV-acM">
-                                <rect key="frame" x="75" y="390" width="264" height="34"/>
+                                <rect key="frame" x="75" y="290" width="264" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vF7-nH-Is4">
-                                <rect key="frame" x="75" y="432" width="264" height="34"/>
+                                <rect key="frame" x="75" y="332" width="264" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U90-hu-dC1">
-                                <rect key="frame" x="254.5" y="516" width="59.5" height="31"/>
+                                <rect key="frame" x="254.5" y="416" width="59.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kld-No-AKZ">
-                                <rect key="frame" x="100" y="516" width="73" height="31"/>
+                                <rect key="frame" x="100" y="416" width="73" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign up"/>
                             </button>
@@ -57,7 +57,7 @@
                             <constraint firstItem="U90-hu-dC1" firstAttribute="centerY" secondItem="Kld-No-AKZ" secondAttribute="centerY" id="KdA-Zt-BRp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U90-hu-dC1" secondAttribute="trailing" constant="100" id="Lol-Cs-HUn"/>
                             <constraint firstItem="U90-hu-dC1" firstAttribute="top" secondItem="vF7-nH-Is4" secondAttribute="bottom" constant="50" id="QCX-UJ-CmG"/>
-                            <constraint firstItem="y19-lM-pE9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="QdC-W8-HcO"/>
+                            <constraint firstItem="y19-lM-pE9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="QdC-W8-HcO"/>
                             <constraint firstItem="y19-lM-pE9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="cKv-nI-jg7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="U90-hu-dC1" secondAttribute="bottom" constant="8" id="kOb-ja-LKY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vF7-nH-Is4" secondAttribute="trailing" constant="75" id="rhN-cm-Wu9"/>
