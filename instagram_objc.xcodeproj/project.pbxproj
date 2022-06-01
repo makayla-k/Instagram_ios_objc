@@ -21,6 +21,8 @@
 		E3D00A20284539470038B5AC /* instagram_objcUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D00A1F284539470038B5AC /* instagram_objcUITestsLaunchTests.m */; };
 		E3D00A2F2845A4D10038B5AC /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D00A2E2845A4D10038B5AC /* Keys.plist */; };
 		E3D00A322846B6C70038B5AC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D00A312846B6C70038B5AC /* LoginViewController.m */; };
+		E3D00A352846C0110038B5AC /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D00A342846C0110038B5AC /* HomeFeedViewController.m */; };
+		E3D00A382846C0E70038B5AC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D00A372846C0E70038B5AC /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,10 @@
 		E3D00A2E2845A4D10038B5AC /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		E3D00A302846B6C70038B5AC /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E3D00A312846B6C70038B5AC /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		E3D00A332846C0100038B5AC /* HomeFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeFeedViewController.h; sourceTree = "<group>"; };
+		E3D00A342846C0110038B5AC /* HomeFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
+		E3D00A362846C0E70038B5AC /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		E3D00A372846C0E70038B5AC /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 		E3D009F6284539420038B5AC /* instagram_objc */ = {
 			isa = PBXGroup;
 			children = (
+				E3D00A392846C1870038B5AC /* view_controllers */,
 				E3D009F7284539420038B5AC /* AppDelegate.h */,
 				E3D009F8284539420038B5AC /* AppDelegate.m */,
 				E3D009FA284539420038B5AC /* SceneDelegate.h */,
@@ -156,8 +163,6 @@
 				E3D00A08284539460038B5AC /* Info.plist */,
 				E3D00A09284539460038B5AC /* main.m */,
 				E3D00A2E2845A4D10038B5AC /* Keys.plist */,
-				E3D00A302846B6C70038B5AC /* LoginViewController.h */,
-				E3D00A312846B6C70038B5AC /* LoginViewController.m */,
 			);
 			path = instagram_objc;
 			sourceTree = "<group>";
@@ -177,6 +182,19 @@
 				E3D00A1F284539470038B5AC /* instagram_objcUITestsLaunchTests.m */,
 			);
 			path = instagram_objcUITests;
+			sourceTree = "<group>";
+		};
+		E3D00A392846C1870038B5AC /* view_controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E3D00A302846B6C70038B5AC /* LoginViewController.h */,
+				E3D00A312846B6C70038B5AC /* LoginViewController.m */,
+				E3D00A332846C0100038B5AC /* HomeFeedViewController.h */,
+				E3D00A342846C0110038B5AC /* HomeFeedViewController.m */,
+				E3D00A362846C0E70038B5AC /* ProfileViewController.h */,
+				E3D00A372846C0E70038B5AC /* ProfileViewController.m */,
+			);
+			path = view_controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,9 +436,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D00A352846C0110038B5AC /* HomeFeedViewController.m in Sources */,
 				E3D00A322846B6C70038B5AC /* LoginViewController.m in Sources */,
 				E3D009F9284539420038B5AC /* AppDelegate.m in Sources */,
 				E3D00A0A284539460038B5AC /* main.m in Sources */,
+				E3D00A382846C0E70038B5AC /* ProfileViewController.m in Sources */,
 				E3D009FC284539420038B5AC /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,7 +47,7 @@
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
             
-            UIAlertController *signedupalert = [UIAlertController alertControllerWithTitle:@"Successful!"message:@"User registered" preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertController *signedupalert = [UIAlertController alertControllerWithTitle:@"Successful!"message:@"User registered. You can now login." preferredStyle:(UIAlertControllerStyleAlert)];
             // create an OK action
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             }];
@@ -57,8 +57,6 @@
             // optional code for what happens after the alert controller has finished presenting
             }];
             NSLog(@"User registered successfully");
-            
-            // manually segue to logged in view
         }
     }];
 }
@@ -82,18 +80,8 @@
             
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
-            UIAlertController *signedupalert = [UIAlertController alertControllerWithTitle:@"Successful!"message:@"User registered" preferredStyle:(UIAlertControllerStyleAlert)];
-            // create an OK action
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            }];
-            [signedupalert addAction:okAction];
-        
-            [self presentViewController:signedupalert animated:YES completion:^{
-            // optional code for what happens after the alert controller has finished presenting
-            }];
-            NSLog(@"User logged in successfully");
-            
             // display view controller that needs to shown after successful login
+            [self performSegueWithIdentifier:@"mainSegue" sender:nil];
         }
     }];
 }
