@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="48.883928571428569"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="8fd-g2-yiV">
             <objects>
                 <viewController id="h3e-cr-mt8" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -90,7 +90,19 @@
                         <viewLayoutGuide key="safeArea" id="PpO-L8-G2L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="InV-As-xHx"/>
+                    <navigationItem key="navigationItem" title="Profile" id="InV-As-xHx">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="uu7-vg-owp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pdG-yX-KsY">
+                                <rect key="frame" x="302" y="11" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogoutButton:" destination="h3e-cr-mt8" eventType="touchUpInside" id="iqa-mZ-miQ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcy-qA-afS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -100,7 +112,7 @@
         <!--Home Feed-->
         <scene sceneID="SVK-DT-ZP9">
             <objects>
-                <viewController id="o7i-h5-vVa" customClass="HomeFeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeFeedViewController" id="o7i-h5-vVa" customClass="HomeFeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QYf-4u-7B9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,7 +128,7 @@
         <!--Home-->
         <scene sceneID="DAT-Bb-MFb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kdg-eW-FqS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeFeedNavController" automaticallyAdjustsScrollViewInsets="NO" id="Kdg-eW-FqS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="4nZ-M2-NOi"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Gov-Xc-kUp"/>
@@ -137,7 +149,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Gk9-tQ-fxy">
             <objects>
-                <tabBarController id="tsw-Hr-uuB" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="tsw-Hr-uuB" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ttj-r0-PtZ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bG-yD-XW6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -156,7 +168,7 @@
         <!--Profile-->
         <scene sceneID="XZJ-Wf-Zaq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eS3-Jg-BVW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileViewController" automaticallyAdjustsScrollViewInsets="NO" id="eS3-Jg-BVW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="Vlc-mh-Yfw"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hKe-ct-Zha"/>

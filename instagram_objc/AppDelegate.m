@@ -7,6 +7,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "SceneDelegate.h"
+#import "HomeFeedViewController.h"
 
 @interface AppDelegate ()
 
