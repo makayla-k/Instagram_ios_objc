@@ -10,20 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-//@protocol ComposeViewControllerDelegate
-//
-//- (void)didPost:(Post *)post;
-//
-//@end
+@protocol ComposeViewControllerDelegate
 
+- (void)didPost;
+
+@end
 
 @interface ComposeViewController : UIViewController
 
-//@property (nonatomic, weak) id<ComposeViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<ComposeViewControllerDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (weak, nonatomic) IBOutlet UITextView *captionView;
-
 
 @end
 

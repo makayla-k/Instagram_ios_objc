@@ -10,9 +10,10 @@
 #import "CommentsViewController.h"
 #import "ComposeViewController.h"
 
-@interface HomeFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface HomeFeedViewController ()<ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *postsArray;
 
 @end
 
@@ -24,26 +25,65 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    [self getPosts];
+}
+
+-(void)getPosts {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.postsArray = posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.postsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    PFObject *post = self.postsArray[indexPath.row];
     
-    cell.usernameTopLabel.text = @"Iron Man";
-    cell.usernameBottomLabel.text = @"Iron Man";
-    cell.captionView.text = @"If you like Captain America Unfollow Me!";
+    PFUser *user = post[@"author"];
+    if (user != nil) {
+        // User found! update username label with username
+        cell.usernameTopLabel.text = user.username;
+        cell.usernameBottomLabel.text = user.username;
+    } else {
+        // No user found, set default username
+        cell.usernameTopLabel.text = @"🤖";
+        cell.usernameBottomLabel.text = @"🤖";
+    }
+    
+//    get image from parse
+    PFFileObject *userImageFile = post[@"image"];
+    cell.imageFile = userImageFile;
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            cell.postImage.image = [UIImage imageWithData:imageData];
+        }
+    }];
+    
+    
+    cell.captionView.text = post[@"caption"];
     
     return cell;
 }
 
-//- (void)didPost:(Post *)post {
-//    [self.tableView reloadData];
-//}
+- (void)didPost {
+    [self getPosts];
+}
 
 
 /*
@@ -59,7 +99,7 @@
     if([[segue identifier] isEqualToString:@"composeSegue"]){
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-//        composeController.delegate = self;
+        composeController.delegate = self;
     }
     if([[segue identifier] isEqualToString:@"commentsSegue"]){
         UINavigationController *navigationController = [segue destinationViewController];

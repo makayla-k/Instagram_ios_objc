@@ -87,8 +87,41 @@
                     <view key="view" contentMode="scaleToFill" id="09A-4w-W5v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YzM-Y2-z61">
+                                <rect key="frame" x="8" y="64" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="CYY-j3-tp7"/>
+                                    <constraint firstAttribute="width" constant="100" id="n9R-Lz-LoF"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CZB-XD-WKa">
+                                <rect key="frame" x="116" y="64" width="290" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fcy-ed-f0u">
+                                <rect key="frame" x="116" y="106" width="290" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PpO-L8-G2L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PpO-L8-G2L" firstAttribute="trailing" secondItem="CZB-XD-WKa" secondAttribute="trailing" constant="8" id="6w5-Nf-XUt"/>
+                            <constraint firstItem="fcy-ed-f0u" firstAttribute="leading" secondItem="CZB-XD-WKa" secondAttribute="leading" id="8Pd-KM-wSY"/>
+                            <constraint firstItem="CZB-XD-WKa" firstAttribute="leading" secondItem="YzM-Y2-z61" secondAttribute="trailing" constant="8" id="AoU-ZC-HI7"/>
+                            <constraint firstItem="PpO-L8-G2L" firstAttribute="trailing" secondItem="fcy-ed-f0u" secondAttribute="trailing" constant="8" id="BZE-u4-7fH"/>
+                            <constraint firstItem="fcy-ed-f0u" firstAttribute="top" secondItem="CZB-XD-WKa" secondAttribute="bottom" constant="8" id="O7S-jl-t5d"/>
+                            <constraint firstItem="CZB-XD-WKa" firstAttribute="top" secondItem="YzM-Y2-z61" secondAttribute="top" id="RY7-QR-Yvt"/>
+                            <constraint firstItem="PpO-L8-G2L" firstAttribute="bottom" secondItem="fcy-ed-f0u" secondAttribute="bottom" constant="579" id="VQ0-c3-1Mf"/>
+                            <constraint firstItem="YzM-Y2-z61" firstAttribute="leading" secondItem="PpO-L8-G2L" secondAttribute="leading" constant="8" id="Xdt-1h-n7K"/>
+                            <constraint firstItem="YzM-Y2-z61" firstAttribute="top" secondItem="PpO-L8-G2L" secondAttribute="top" constant="8" id="zqM-Km-GLj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="InV-As-xHx">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="uu7-vg-owp">
