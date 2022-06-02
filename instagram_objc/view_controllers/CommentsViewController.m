@@ -8,8 +8,10 @@
 #import "CommentsViewController.h"
 #import "CommentCell.h"
 
-@interface CommentsViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface CommentsViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextView *postCommentView;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
 
 @end
 
@@ -20,7 +22,18 @@
     // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+//    self.postCommentView.delegate = self;
 }
+
+//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+//    [textView becomeFirstResponder];
+//    return YES;
+//}
+//
+//- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+//    //resign for exapmple
+//    return YES;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
@@ -31,7 +44,7 @@
     CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
     
     cell.usernameLabel.text = @"Iron Man";
-    cell.commentView.text = @"If you like Captain America Unfollow Me!";
+    cell.commentView.text = @"If you like Captain America Unfollow Me! I love";
     
     return cell;
 }

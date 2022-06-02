@@ -21,13 +21,14 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
     //    persisting user session
-        if (PFUser.currentUser) {
-            SceneDelegate *myDelegate = (SceneDelegate *)self.window.windowScene.delegate;
-            
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-            myDelegate.window.rootViewController = tabBarController;
-        }
+    PFUser *user = [PFUser currentUser];
+    if (user != nil) {
+        SceneDelegate *myDelegate = (SceneDelegate *)self.window.windowScene.delegate;
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        myDelegate.window.rootViewController = tabBarController;
+    }
 }
 
 

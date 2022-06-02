@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcy-qA-afS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3905.7971014492755" y="839.73214285714278"/>
+            <point key="canvasLocation" x="4815.9420289855079" y="839.73214285714278"/>
         </scene>
         <!--Home Feed-->
         <scene sceneID="SVK-DT-ZP9">
@@ -154,7 +154,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I am Iron Man" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FDt-3L-KYC">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I am Iron Man" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDt-3L-KYC">
                                                     <rect key="frame" x="95.5" y="359" width="310.5" height="98"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <accessibility key="accessibilityConfiguration">
@@ -204,7 +204,19 @@
                             <constraint firstItem="rcE-hx-py2" firstAttribute="trailing" secondItem="iIX-Kd-Z2j" secondAttribute="trailing" id="uTg-EI-Hi0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Feed" id="RCB-O3-Uy0"/>
+                    <navigationItem key="navigationItem" title="Home Feed" id="RCB-O3-Uy0">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="4tA-qO-3iT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Jr2-A3-QIY">
+                                <rect key="frame" x="302" y="8.5" width="92" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="insta_camera_btn"/>
+                                <connections>
+                                    <segue destination="csM-R9-9ZW" kind="presentation" identifier="composeSegue" id="xh2-Cy-ofm"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rcE-hx-py2" id="Zfx-pR-EIp"/>
                     </connections>
@@ -212,6 +224,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22R-8A-4F3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-559.4202898550725" y="839.73214285714278"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="srv-gi-RTl">
+            <objects>
+                <viewController storyboardIdentifier="ComposeViewController" id="KFp-ui-ObJ" customClass="ComposeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gle-Uz-N4b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-VA-UUj">
+                                <rect key="frame" x="8" y="76" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ZoS-14-aFg"/>
+                                    <constraint firstAttribute="width" constant="150" id="gDh-wU-VaB"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XM0-DO-3js">
+                                <rect key="frame" x="166" y="76" width="240" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jRb-rJ-Iq8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jRb-rJ-Iq8" firstAttribute="bottom" secondItem="XM0-DO-3js" secondAttribute="bottom" constant="616" id="CaE-Mx-XYc"/>
+                            <constraint firstItem="XM0-DO-3js" firstAttribute="top" secondItem="8iR-VA-UUj" secondAttribute="top" id="WsG-Hj-o0F"/>
+                            <constraint firstItem="XM0-DO-3js" firstAttribute="leading" secondItem="8iR-VA-UUj" secondAttribute="trailing" constant="8" id="aPP-ph-2Yd"/>
+                            <constraint firstItem="8iR-VA-UUj" firstAttribute="top" secondItem="jRb-rJ-Iq8" secondAttribute="top" constant="20" id="bSY-GV-kYK"/>
+                            <constraint firstItem="jRb-rJ-Iq8" firstAttribute="trailing" secondItem="XM0-DO-3js" secondAttribute="trailing" constant="8" id="sPz-RC-Adu"/>
+                            <constraint firstItem="8iR-VA-UUj" firstAttribute="leading" secondItem="jRb-rJ-Iq8" secondAttribute="leading" constant="8" id="xgF-s8-Ci5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7V6-ev-Qud">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="aTS-CO-otP">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Fnd-IO-Krp">
+                                <rect key="frame" x="20" y="12.5" width="92" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="KFp-ui-ObJ" eventType="touchUpInside" id="K4b-dH-Roq"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="lSZ-Ue-z6X">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="SnR-eO-xxX">
+                                <rect key="frame" x="302" y="11" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="didTapPost:" destination="KFp-ui-ObJ" eventType="touchUpInside" id="yIr-4C-dTB"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="captionView" destination="XM0-DO-3js" id="ziQ-gF-MGD"/>
+                        <outlet property="postImage" destination="8iR-VA-UUj" id="heU-oq-Q3k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jck-n8-nrR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302.8985507246377" y="839.73214285714278"/>
         </scene>
         <!--Comments-->
         <scene sceneID="kbo-6c-gf6">
@@ -238,7 +317,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I am Iron Man" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1uu-Qd-ze1">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="I am Iron Man" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uu-Qd-ze1">
                                                     <rect key="frame" x="95.5" y="8" width="310.5" height="44"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <accessibility key="accessibilityConfiguration">
@@ -266,13 +345,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Frh-mV-JAy">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Frh-mV-JAy">
                                 <rect key="frame" x="8" y="558" width="323" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="y5o-YL-V4f"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -300,6 +378,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Comments" id="4Uq-eG-Mi9"/>
                     <connections>
+                        <outlet property="postButton" destination="vio-sJ-jIj" id="NQj-kq-cyZ"/>
+                        <outlet property="postCommentView" destination="Frh-mV-JAy" id="CRg-l2-87O"/>
                         <outlet property="tableView" destination="zsE-aH-eY9" id="A1n-91-COE"/>
                     </connections>
                 </viewController>
@@ -365,7 +445,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqp-oc-Nzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3063.768115942029" y="839.73214285714278"/>
+            <point key="canvasLocation" x="3973.913043478261" y="839.73214285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M0z-WP-a0V">
@@ -386,8 +466,27 @@
             </objects>
             <point key="canvasLocation" x="-1014" y="1582"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bqd-U2-iZw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csM-R9-9ZW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GLQ-7a-XCe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KFp-ui-ObJ" kind="relationship" relationship="rootViewController" id="0mh-8L-uK9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g4Y-iG-Iud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="409" y="840"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="insta_camera_btn" width="25" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

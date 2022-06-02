@@ -8,6 +8,7 @@
 #import "HomeFeedViewController.h"
 #import "PostCell.h"
 #import "CommentsViewController.h"
+#import "ComposeViewController.h"
 
 @interface HomeFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -40,6 +41,9 @@
     return cell;
 }
 
+//- (void)didPost:(Post *)post {
+//    [self.tableView reloadData];
+//}
 
 
 /*
@@ -52,6 +56,11 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    if([[segue identifier] isEqualToString:@"composeSegue"]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+//        composeController.delegate = self;
+    }
     if([[segue identifier] isEqualToString:@"commentsSegue"]){
         UINavigationController *navigationController = [segue destinationViewController];
         CommentsViewController *commentViewController = (CommentsViewController*)navigationController.topViewController;

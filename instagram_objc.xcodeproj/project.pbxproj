@@ -13,6 +13,8 @@
 		E34E7C8F2848392C00586C72 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34E7C8E2848392C00586C72 /* PostCell.m */; };
 		E34E7C9228483BAF00586C72 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34E7C9128483BAF00586C72 /* CommentsViewController.m */; };
 		E34E7C9528483C7F00586C72 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E34E7C9428483C7F00586C72 /* CommentCell.m */; };
+		E34E7C9B28484EB100586C72 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = E34E7C9A28484EB100586C72 /* Post.m */; };
+		E34E7C9E2848674A00586C72 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34E7C9D2848674A00586C72 /* ComposeViewController.m */; };
 		E3D009F9284539420038B5AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D009F8284539420038B5AC /* AppDelegate.m */; };
 		E3D009FC284539420038B5AC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D009FB284539420038B5AC /* SceneDelegate.m */; };
 		E3D00A02284539420038B5AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3D00A00284539420038B5AC /* Main.storyboard */; };
@@ -61,6 +63,10 @@
 		E34E7C9128483BAF00586C72 /* CommentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		E34E7C9328483C7F00586C72 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		E34E7C9428483C7F00586C72 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		E34E7C9928484EB100586C72 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		E34E7C9A28484EB100586C72 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		E34E7C9C2848674A00586C72 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		E34E7C9D2848674A00586C72 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		E3D009F4284539420038B5AC /* instagram_objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram_objc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D009F7284539420038B5AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3D009F8284539420038B5AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -136,6 +142,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E34E7C9728484E1C00586C72 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E34E7C8D2848392C00586C72 /* PostCell.h */,
+				E34E7C8E2848392C00586C72 /* PostCell.m */,
+				E34E7C9328483C7F00586C72 /* CommentCell.h */,
+				E34E7C9428483C7F00586C72 /* CommentCell.m */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		E34E7C9828484E3200586C72 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				E34E7C9928484EB100586C72 /* Post.h */,
+				E34E7C9A28484EB100586C72 /* Post.m */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		E3D009EB284539420038B5AC = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +187,8 @@
 		E3D009F6284539420038B5AC /* instagram_objc */ = {
 			isa = PBXGroup;
 			children = (
+				E34E7C9828484E3200586C72 /* models */,
+				E34E7C9728484E1C00586C72 /* cells */,
 				E3D00A392846C1870038B5AC /* view_controllers */,
 				E3D009F7284539420038B5AC /* AppDelegate.h */,
 				E3D009F8284539420038B5AC /* AppDelegate.m */,
@@ -172,10 +200,6 @@
 				E3D00A08284539460038B5AC /* Info.plist */,
 				E3D00A09284539460038B5AC /* main.m */,
 				E3D00A2E2845A4D10038B5AC /* Keys.plist */,
-				E34E7C8D2848392C00586C72 /* PostCell.h */,
-				E34E7C8E2848392C00586C72 /* PostCell.m */,
-				E34E7C9328483C7F00586C72 /* CommentCell.h */,
-				E34E7C9428483C7F00586C72 /* CommentCell.m */,
 			);
 			path = instagram_objc;
 			sourceTree = "<group>";
@@ -208,6 +232,8 @@
 				E3D00A372846C0E70038B5AC /* ProfileViewController.m */,
 				E34E7C9028483BAF00586C72 /* CommentsViewController.h */,
 				E34E7C9128483BAF00586C72 /* CommentsViewController.m */,
+				E34E7C9C2848674A00586C72 /* ComposeViewController.h */,
+				E34E7C9D2848674A00586C72 /* ComposeViewController.m */,
 			);
 			path = view_controllers;
 			sourceTree = "<group>";
@@ -456,8 +482,10 @@
 				E3D00A352846C0110038B5AC /* HomeFeedViewController.m in Sources */,
 				E3D00A322846B6C70038B5AC /* LoginViewController.m in Sources */,
 				E3D009F9284539420038B5AC /* AppDelegate.m in Sources */,
+				E34E7C9B28484EB100586C72 /* Post.m in Sources */,
 				E3D00A0A284539460038B5AC /* main.m in Sources */,
 				E34E7C8F2848392C00586C72 /* PostCell.m in Sources */,
+				E34E7C9E2848674A00586C72 /* ComposeViewController.m in Sources */,
 				E3D00A382846C0E70038B5AC /* ProfileViewController.m in Sources */,
 				E3D009FC284539420038B5AC /* SceneDelegate.m in Sources */,
 			);
