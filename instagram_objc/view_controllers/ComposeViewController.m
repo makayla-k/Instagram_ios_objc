@@ -50,10 +50,26 @@
 
 - (IBAction)didTapPost:(id)sender {
     
-    [Post postUserImage:self.postImage.image withCaption:self.captionView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        NSLog(@"Successfully posted image!");
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
+    if(self.postImage.image != nil){
+        [Post postUserImage:self.postImage.image withCaption:self.captionView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            NSLog(@"Successfully posted image!");
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
+    else{
+        //    alert if no image was uploaded
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"An image must be selected to post." preferredStyle:(UIAlertControllerStyleAlert)];
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self viewDidLoad];
+            }];
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+            }];
+            
+    }
     
 }
 
