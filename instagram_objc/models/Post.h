@@ -11,10 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Post : PFObject<PFSubclassing>
 
-@property (nonatomic, strong) NSString *user;
+@property (nonatomic, strong) PFUser *author;
 @property (nonatomic, strong) NSString *caption;
 
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) PFFileObject *image;
+
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
 
 @end
 

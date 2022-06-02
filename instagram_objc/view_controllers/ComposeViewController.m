@@ -49,19 +49,11 @@
 }
 
 - (IBAction)didTapPost:(id)sender {
-    PFObject *post = [PFObject objectWithClassName:@"Post"];
     
-    post[@"author"] = PFUser.currentUser;
-    post[@"caption"] = self.captionView.text;
-    
-    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-            if (succeeded) {
-                NSLog(@"The post was saved!");
-                [self dismissViewControllerAnimated:true completion:nil];
-            } else {
-                NSLog(@"Problem saving post: %@", error.localizedDescription);
-            }
-        }];
+    [Post postUserImage:self.postImage.image withCaption:self.captionView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"Successfully posted image!");
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
     
 }
 
