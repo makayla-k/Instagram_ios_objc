@@ -9,6 +9,7 @@
 #import "PostCell.h"
 #import "CommentsViewController.h"
 #import "ComposeViewController.h"
+#import "DetailsViewController.h"
 
 @interface HomeFeedViewController ()<ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -81,6 +82,11 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (void)didPost {
     [self getPosts];
 }
@@ -107,6 +113,14 @@
 //        PostCell *tappedCell = sender;
 //        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         
+    }
+    if([[segue identifier] isEqualToString:@"detailsSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        DetailsViewController *detailsViewController = (DetailsViewController*)navigationController.topViewController;
+        PostCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.postsArray[indexPath.row];
+        detailsViewController.post = post;
     }
 }
 
