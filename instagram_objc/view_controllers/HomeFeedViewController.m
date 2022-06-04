@@ -118,8 +118,10 @@
     if([[segue identifier] isEqualToString:@"commentsSegue"]){
         UINavigationController *navigationController = [segue destinationViewController];
         CommentsViewController *commentViewController = (CommentsViewController*)navigationController.topViewController;
-//        PostCell *tappedCell = sender;
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        PostCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.postsArray[indexPath.row];
+        commentViewController.post = post;
         
     }
     if([[segue identifier] isEqualToString:@"detailsSegue"]) {

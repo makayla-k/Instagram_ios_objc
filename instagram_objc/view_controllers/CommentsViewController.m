@@ -7,12 +7,11 @@
 
 #import "CommentsViewController.h"
 #import "CommentCell.h"
+#import "Comment.h"
 
 @interface CommentsViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextView *postCommentView;
-@property (weak, nonatomic) IBOutlet UIButton *postButton;
-
 @end
 
 @implementation CommentsViewController
@@ -22,18 +21,18 @@
     // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-//    self.postCommentView.delegate = self;
+    
+//    border around text view
+    self.postCommentView.layer.borderWidth =.5;
+    self.postCommentView.layer.cornerRadius = 5.0;
+    
+    [self getComments];
+
 }
 
-//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-//    [textView becomeFirstResponder];
-//    return YES;
-//}
-//
-//- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
-//    //resign for exapmple
-//    return YES;
-//}
+-(void)getComments {
+    
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
@@ -47,6 +46,29 @@
     cell.commentView.text = @"If you like Captain America Unfollow Me! I love";
     
     return cell;
+}
+- (IBAction)didTapPost:(id)sender {
+    if(self.postCommentView.text != nil){
+        [Comment postUserComment:self.postCommentView.text withPost: self.post withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            NSLog(@"Successfully posted comment!");
+            [self.tableView reloadData];
+        }];
+    }
+    else{
+        //    alert if no image was uploaded
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Cannot post empty comment" preferredStyle:(UIAlertControllerStyleAlert)];
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self viewDidLoad];
+            }];
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+            }];
+            
+    }
+
 }
 
 /*

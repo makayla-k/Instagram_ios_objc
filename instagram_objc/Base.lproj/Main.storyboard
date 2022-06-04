@@ -348,7 +348,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zsE-aH-eY9">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="423.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="60" id="vzj-4d-ttQ" customClass="CommentCell">
@@ -393,7 +393,7 @@
                                 </prototypes>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Frh-mV-JAy">
-                                <rect key="frame" x="8" y="558" width="323" height="50"/>
+                                <rect key="frame" x="8" y="431.5" width="337" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="y5o-YL-V4f"/>
@@ -403,9 +403,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vio-sJ-jIj">
-                                <rect key="frame" x="339" y="567.5" width="67" height="31"/>
+                                <rect key="frame" x="353" y="441" width="53" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                <connections>
+                                    <action selector="didTapPost:" destination="J8G-jq-ncf" eventType="touchUpInside" id="sRN-Yy-mhC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8EL-cg-VHj"/>
@@ -419,13 +422,12 @@
                             <constraint firstItem="Frh-mV-JAy" firstAttribute="leading" secondItem="8EL-cg-VHj" secondAttribute="leading" constant="8" id="eSL-ul-3v1"/>
                             <constraint firstItem="zsE-aH-eY9" firstAttribute="top" secondItem="Dyi-YZ-1Vk" secondAttribute="top" id="fME-5M-G9k"/>
                             <constraint firstItem="Frh-mV-JAy" firstAttribute="top" secondItem="zsE-aH-eY9" secondAttribute="bottom" constant="8" id="nJs-Xt-ugL"/>
-                            <constraint firstItem="zsE-aH-eY9" firstAttribute="height" secondItem="Dyi-YZ-1Vk" secondAttribute="height" multiplier="0.653207" id="pcL-oT-in7"/>
+                            <constraint firstItem="zsE-aH-eY9" firstAttribute="height" secondItem="Dyi-YZ-1Vk" secondAttribute="height" multiplier="0.503207" id="pcL-oT-in7"/>
                             <constraint firstItem="vio-sJ-jIj" firstAttribute="leading" secondItem="Frh-mV-JAy" secondAttribute="trailing" constant="8" id="yWB-Mt-CLo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Comments" id="4Uq-eG-Mi9"/>
                     <connections>
-                        <outlet property="postButton" destination="vio-sJ-jIj" id="NQj-kq-cyZ"/>
                         <outlet property="postCommentView" destination="Frh-mV-JAy" id="CRg-l2-87O"/>
                         <outlet property="tableView" destination="zsE-aH-eY9" id="A1n-91-COE"/>
                     </connections>
