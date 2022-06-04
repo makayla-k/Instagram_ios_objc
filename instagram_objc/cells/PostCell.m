@@ -23,11 +23,14 @@
 - (void)prepareForReuse {
     [super prepareForReuse];
     
+    self.profileImage.image = nil;
+    [self.imageFileProfile cancel];
+    
     self.usernameTopLabel.text = @"";
     self.usernameBottomLabel.text = @"";
     
     self.postImage.image = nil;
-    [self.imageFile cancel];
+    [self.imageFilePost cancel];
     
 }
 

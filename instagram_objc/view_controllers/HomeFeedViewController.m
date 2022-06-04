@@ -77,9 +77,18 @@
         cell.usernameBottomLabel.text = @"🤖";
     }
     
-//    get image from parse
+    //    get profile image from parse
+    PFFileObject *userProfileImageFile = user[@"profileImage"];
+    cell.imageFileProfile = userProfileImageFile;
+    [userProfileImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            cell.profileImage.image = [UIImage imageWithData:imageData];
+        }
+    }];
+    
+//    get post image from parse
     PFFileObject *userImageFile = post[@"image"];
-    cell.imageFile = userImageFile;
+    cell.imageFilePost = userImageFile;
     [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
         if (!error) {
             cell.postImage.image = [UIImage imageWithData:imageData];

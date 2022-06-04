@@ -13,11 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PostCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (strong, nonatomic) PFFileObject *imageFileProfile;
 @property (weak, nonatomic) IBOutlet UILabel *usernameTopLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
+@property (strong, nonatomic) PFFileObject *imageFilePost;
 @property (weak, nonatomic) IBOutlet UILabel *usernameBottomLabel;
 @property (weak, nonatomic) IBOutlet UITextView *captionView;
-@property (strong, nonatomic) PFFileObject *imageFile;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 
