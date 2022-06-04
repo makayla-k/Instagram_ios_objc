@@ -40,7 +40,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-    
+
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -86,9 +86,32 @@
         }
     }];
     
-    
     cell.captionView.text = post[@"caption"];
     
+    // TODO: Format and set createdAtString
+    NSDate *date = post.createdAt;
+    //convert Date to time ago since now
+    NSNumber *myDoubleNumber = [NSNumber numberWithDouble:date.timeIntervalSinceNow];
+    double myNum = labs([myDoubleNumber doubleValue]);
+    int temp;
+    
+    if(myNum > 86400) {
+        temp = (myNum / 86400);
+        cell.timestampLabel.text = [NSString stringWithFormat: @"%dd", temp];
+    }
+    else if(myNum > 3600) {
+        temp = (myNum / 3600);
+        cell.timestampLabel.text = [NSString stringWithFormat: @"%dh", temp];
+    }
+    else if(myNum > 60) {
+        temp = (myNum / 60);
+        cell.timestampLabel.text = [NSString stringWithFormat: @"%dm", temp];
+    }
+    else {
+        temp = (myNum / 6);
+        cell.timestampLabel.text = [NSString stringWithFormat: @"%ds", temp];
+    }
+        
     return cell;
 }
 

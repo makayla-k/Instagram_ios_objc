@@ -187,16 +187,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I am Iron Man" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDt-3L-KYC">
-                                                    <rect key="frame" x="8" y="382.5" width="398" height="74.5"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <accessibility key="accessibilityConfiguration">
-                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
-                                                    </accessibility>
-                                                    <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njS-x8-GZ9">
                                                     <rect key="frame" x="102.5" y="357" width="20" height="15"/>
                                                     <constraints>
@@ -209,22 +199,41 @@
                                                         <segue destination="GOg-j6-9zD" kind="presentation" identifier="commentsSegue" id="pVj-n9-Q7u"/>
                                                     </connections>
                                                 </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="I am Iron Man" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDt-3L-KYC">
+                                                    <rect key="frame" x="8" y="382.5" width="398" height="50.5"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                    </accessibility>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfD-BR-V1J">
+                                                    <rect key="frame" x="8" y="441" width="398" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="HdC-yx-ciV" firstAttribute="top" secondItem="ywZ-3p-iJJ" secondAttribute="bottom" constant="8" id="5GD-0m-l8w"/>
                                                 <constraint firstItem="ZNE-Jw-rrY" firstAttribute="leading" secondItem="LxM-JH-7Az" secondAttribute="leading" constant="8" id="5hR-Th-mEw"/>
                                                 <constraint firstItem="N8A-VH-NhD" firstAttribute="centerY" secondItem="ZNE-Jw-rrY" secondAttribute="centerY" id="ALU-fz-6K9"/>
+                                                <constraint firstAttribute="trailing" secondItem="FfD-BR-V1J" secondAttribute="trailing" constant="8" id="APW-Fz-VGb"/>
                                                 <constraint firstItem="HdC-yx-ciV" firstAttribute="leading" secondItem="ywZ-3p-iJJ" secondAttribute="leading" id="DvZ-sk-QKn"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="N8A-VH-NhD" secondAttribute="trailing" constant="8" id="JYB-ah-2rf"/>
-                                                <constraint firstAttribute="bottom" secondItem="FDt-3L-KYC" secondAttribute="bottom" constant="8" id="Lju-IN-7Ic"/>
                                                 <constraint firstItem="ywZ-3p-iJJ" firstAttribute="top" secondItem="N8A-VH-NhD" secondAttribute="bottom" constant="10" id="NrS-XI-Uyn"/>
+                                                <constraint firstItem="FfD-BR-V1J" firstAttribute="leading" secondItem="FDt-3L-KYC" secondAttribute="leading" id="PjX-eB-pHK"/>
                                                 <constraint firstItem="FDt-3L-KYC" firstAttribute="top" secondItem="HdC-yx-ciV" secondAttribute="bottom" constant="8" id="TP7-rm-a6a"/>
                                                 <constraint firstItem="ZNE-Jw-rrY" firstAttribute="top" secondItem="LxM-JH-7Az" secondAttribute="top" constant="8" id="Xnz-Al-Qkh"/>
+                                                <constraint firstAttribute="bottom" secondItem="FfD-BR-V1J" secondAttribute="bottom" constant="8" id="czX-hu-M9S"/>
                                                 <constraint firstItem="njS-x8-GZ9" firstAttribute="leading" secondItem="HdC-yx-ciV" secondAttribute="trailing" constant="15" id="dYO-Nl-YvR"/>
                                                 <constraint firstAttribute="trailing" secondItem="ywZ-3p-iJJ" secondAttribute="trailing" constant="8" id="dj5-Yh-Yew"/>
                                                 <constraint firstItem="ywZ-3p-iJJ" firstAttribute="leading" secondItem="LxM-JH-7Az" secondAttribute="leading" constant="8" id="eqU-CF-aaY"/>
                                                 <constraint firstAttribute="trailing" secondItem="FDt-3L-KYC" secondAttribute="trailing" constant="8" id="hui-gj-afw"/>
                                                 <constraint firstItem="FDt-3L-KYC" firstAttribute="leading" secondItem="HdC-yx-ciV" secondAttribute="leading" id="ktV-4y-LpV"/>
+                                                <constraint firstItem="FfD-BR-V1J" firstAttribute="top" secondItem="FDt-3L-KYC" secondAttribute="bottom" constant="8" id="tZP-Kl-yx6"/>
                                                 <constraint firstItem="njS-x8-GZ9" firstAttribute="centerY" secondItem="HdC-yx-ciV" secondAttribute="centerY" id="vTe-An-h8q"/>
                                                 <constraint firstItem="N8A-VH-NhD" firstAttribute="leading" secondItem="ZNE-Jw-rrY" secondAttribute="trailing" constant="10" id="xuq-F7-sVz"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HdC-yx-ciV" secondAttribute="bottom" constant="8" id="yVN-YI-s1l"/>
@@ -235,6 +244,7 @@
                                             <outlet property="commentButton" destination="njS-x8-GZ9" id="ouV-EU-4Ub"/>
                                             <outlet property="postImage" destination="ywZ-3p-iJJ" id="TVZ-4D-53n"/>
                                             <outlet property="profileImage" destination="ZNE-Jw-rrY" id="q1r-tC-5lQ"/>
+                                            <outlet property="timestampLabel" destination="FfD-BR-V1J" id="Egu-Qn-PHm"/>
                                             <outlet property="usernameBottomLabel" destination="HdC-yx-ciV" id="rDy-AM-EaM"/>
                                             <outlet property="usernameTopLabel" destination="N8A-VH-NhD" id="Y9B-Ny-GkV"/>
                                             <segue destination="kRl-hk-UUk" kind="presentation" identifier="detailsSegue" id="Vbf-KF-5n8"/>
