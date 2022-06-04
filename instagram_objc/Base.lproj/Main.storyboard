@@ -232,6 +232,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionView" destination="FDt-3L-KYC" id="RxU-9T-C7B"/>
+                                            <outlet property="commentButton" destination="njS-x8-GZ9" id="ouV-EU-4Ub"/>
                                             <outlet property="postImage" destination="ywZ-3p-iJJ" id="TVZ-4D-53n"/>
                                             <outlet property="profileImage" destination="ZNE-Jw-rrY" id="q1r-tC-5lQ"/>
                                             <outlet property="usernameBottomLabel" destination="HdC-yx-ciV" id="rDy-AM-EaM"/>

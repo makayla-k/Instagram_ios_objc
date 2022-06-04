@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *usernameBottomLabel;
 @property (weak, nonatomic) IBOutlet UITextView *captionView;
 @property (strong, nonatomic) PFFileObject *imageFile;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @end
 

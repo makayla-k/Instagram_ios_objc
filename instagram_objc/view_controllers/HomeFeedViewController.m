@@ -64,6 +64,8 @@
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
     PFObject *post = self.postsArray[indexPath.row];
     
+    cell.commentButton.tag = indexPath.row;
+    
     PFUser *user = post[@"author"];
     if (user != nil) {
         // User found! update username label with username
@@ -89,6 +91,7 @@
     
     return cell;
 }
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -118,11 +121,11 @@
     if([[segue identifier] isEqualToString:@"commentsSegue"]){
         UINavigationController *navigationController = [segue destinationViewController];
         CommentsViewController *commentViewController = (CommentsViewController*)navigationController.topViewController;
-        PostCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-        Post *post = self.postsArray[indexPath.row];
+        NSInteger i = [sender tag];
+//        NSIndexPath *indexPath = tappedBtn.tag;
+        Post *post = self.postsArray[i];
         commentViewController.post = post;
-        
+
     }
     if([[segue identifier] isEqualToString:@"detailsSegue"]) {
         UINavigationController *navigationController = [segue destinationViewController];

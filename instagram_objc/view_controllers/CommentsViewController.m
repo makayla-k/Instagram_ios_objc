@@ -12,6 +12,8 @@
 @interface CommentsViewController ()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextView *postCommentView;
+@property (strong, nonatomic) NSArray *commentsArray;
+
 @end
 
 @implementation CommentsViewController
@@ -26,24 +28,62 @@
     self.postCommentView.layer.borderWidth =.5;
     self.postCommentView.layer.cornerRadius = 5.0;
     
-    [self getComments];
+//    [self getComments];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
 
 }
 
--(void)getComments {
-    
+- (void)onTimer {
+    PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"post" equalTo:self.post];
+    [query includeKey:@"author"];
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *comments, NSError *error) {
+        if (comments != nil) {
+            // do something with the array of object returned by the call
+            self.commentsArray = comments;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
+
+//-(void)getComments {
+//
+//    PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
+//    [query orderByDescending:@"createdAt"];
+//    [query whereKey:@"post" equalTo:self.post];
+//    [query includeKey:@"author"];
+//
+//    // fetch data asynchronously
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *comments, NSError *error) {
+//        if (comments != nil) {
+//            // do something with the array of object returned by the call
+//            self.commentsArray = comments;
+//        } else {
+//            NSLog(@"%@", error.localizedDescription);
+//        }
+//
+//    }];
+//
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.commentsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+    Comment *comment = self.commentsArray[indexPath.row];
     
-    cell.usernameLabel.text = @"Iron Man";
-    cell.commentView.text = @"If you like Captain America Unfollow Me! I love";
+    PFUser *user = comment[@"author"];
+    
+    cell.usernameLabel.text = user.username;
+    cell.commentView.text = comment[@"text"];
     
     return cell;
 }
@@ -51,7 +91,6 @@
     if(self.postCommentView.text != nil){
         [Comment postUserComment:self.postCommentView.text withPost: self.post withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             NSLog(@"Successfully posted comment!");
-            [self.tableView reloadData];
         }];
     }
     else{
@@ -68,7 +107,6 @@
             }];
             
     }
-
 }
 
 /*
