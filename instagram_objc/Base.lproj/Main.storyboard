@@ -114,7 +114,7 @@
                                 <rect key="frame" x="0.0" y="204" width="414" height="638"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="479" id="sEC-DR-ftd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userPostCell" rowHeight="479" id="sEC-DR-ftd" customClass="UserPostCell">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="479"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sEC-DR-ftd" id="O7d-yc-Kbv">
@@ -173,6 +173,13 @@
                                                 <constraint firstItem="84S-7S-O9H" firstAttribute="top" secondItem="uWm-9K-WOz" secondAttribute="bottom" constant="8" id="v2Z-4C-3nI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="hib-24-RUK" id="hFD-aG-A2l"/>
+                                            <outlet property="postImage" destination="uWm-9K-WOz" id="GDd-YL-nUf"/>
+                                            <outlet property="postProfileImage" destination="SqJ-I0-WQp" id="TyL-Gj-1Gb"/>
+                                            <outlet property="usernameBottomLabel" destination="84S-7S-O9H" id="bds-qz-bdG"/>
+                                            <outlet property="usernameTopLabel" destination="mbN-Qr-j8O" id="2s8-j7-srn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -210,6 +217,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="profileImage" destination="YzM-Y2-z61" id="jUs-mr-Izy"/>
+                        <outlet property="tableView" destination="ruK-gb-YkQ" id="gwC-O3-OF5"/>
                         <outlet property="usernameLabel" destination="CZB-XD-WKa" id="fpb-EA-e3N"/>
                     </connections>
                 </viewController>

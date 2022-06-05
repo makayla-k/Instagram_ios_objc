@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) PFFileObject *imageFileProfile;
 @property (weak, nonatomic) IBOutlet UITextField *usernameLabel;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

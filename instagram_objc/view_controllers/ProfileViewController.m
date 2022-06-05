@@ -9,8 +9,12 @@
 #import "Parse/Parse.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
+#import "UserPostCell.h"
 
-@interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ProfileViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *postsArray;
 
 @end
 
@@ -18,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
     // Do any additional setup after loading the view.
     PFUser *user = [PFUser currentUser];
     //    get profile image from parse
@@ -30,6 +38,8 @@
     }];
     
     self.usernameLabel.text = user.username;
+    
+    [self getPosts];
 }
 
 - (IBAction)onLogoutButton:(id)sender {
@@ -99,6 +109,69 @@
     }
     
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
+}
+
+-(void)getPosts {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.postsArray = posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        
+    }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.postsArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UserPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userPostCell"];
+    PFObject *post = self.postsArray[indexPath.row];
+        
+    PFUser *user = post[@"author"];
+    if (user != nil) {
+        // User found! update username label with username
+        cell.usernameTopLabel.text = user.username;
+        cell.usernameBottomLabel.text = user.username;
+    } else {
+        // No user found, set default username
+        cell.usernameTopLabel.text = @"🤖";
+        cell.usernameBottomLabel.text = @"🤖";
+    }
+    
+    //    get profile image from parse
+    PFFileObject *userProfileImageFile = user[@"profileImage"];
+    cell.imageFileProfile = userProfileImageFile;
+    [userProfileImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            cell.postProfileImage.image = [UIImage imageWithData:imageData];
+        }
+    }];
+    
+//    get post image from parse
+    PFFileObject *userImageFile = post[@"image"];
+    cell.imageFilePost = userImageFile;
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            cell.postImage.image = [UIImage imageWithData:imageData];
+        }
+    }];
+    
+    cell.captionLabel.text = post[@"caption"];
+    
+    return cell;
 }
 
 /*
