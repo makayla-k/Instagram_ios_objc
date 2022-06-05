@@ -10,6 +10,7 @@
 #import "CommentsViewController.h"
 #import "ComposeViewController.h"
 #import "DetailsViewController.h"
+#import "UserInfoViewController.h"
 
 @interface HomeFeedViewController ()<ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -65,6 +66,8 @@
     PFObject *post = self.postsArray[indexPath.row];
     
     cell.commentButton.tag = indexPath.row;
+    cell.infoButton.tag = indexPath.row;
+
     
     PFUser *user = post[@"author"];
     if (user != nil) {
@@ -166,6 +169,13 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Post *post = self.postsArray[indexPath.row];
         detailsViewController.post = post;
+    }
+    if([[segue identifier] isEqualToString:@"profileInfoSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        UserInfoViewController *userInfoViewController = (UserInfoViewController*)navigationController.topViewController;
+        NSInteger i = [sender tag];
+        Post *post = self.postsArray[i];
+        userInfoViewController.user = post[@"author"];
     }
 }
 
