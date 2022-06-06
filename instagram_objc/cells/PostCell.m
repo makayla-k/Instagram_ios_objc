@@ -28,6 +28,7 @@
     
     self.usernameTopLabel.text = @"";
     self.usernameBottomLabel.text = @"";
+    self.numberOfLikesLabel.text = @"";
     
     self.postImage.image = nil;
     [self.imageFilePost cancel];

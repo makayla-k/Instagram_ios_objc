@@ -309,6 +309,27 @@
                                                         <segue destination="cxD-cv-8Ib" kind="presentation" identifier="profileInfoSegue" id="n5G-me-Zi3"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H65-QG-XIB">
+                                                    <rect key="frame" x="162.5" y="357" width="25.5" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMO-ZL-tc3">
+                                                    <rect key="frame" x="132.5" y="354.5" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="TOb-FT-0lE"/>
+                                                        <constraint firstAttribute="width" constant="20" id="uB2-gf-BPe"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="heart" catalog="system">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapLike:" destination="o7i-h5-vVa" eventType="touchUpInside" id="hnl-qG-PEd"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="HdC-yx-ciV" firstAttribute="top" secondItem="ywZ-3p-iJJ" secondAttribute="bottom" constant="8" id="5GD-0m-l8w"/>
@@ -317,28 +338,34 @@
                                                 <constraint firstItem="N8A-VH-NhD" firstAttribute="centerY" secondItem="ZNE-Jw-rrY" secondAttribute="centerY" id="ALU-fz-6K9"/>
                                                 <constraint firstAttribute="trailing" secondItem="FfD-BR-V1J" secondAttribute="trailing" constant="8" id="APW-Fz-VGb"/>
                                                 <constraint firstItem="HdC-yx-ciV" firstAttribute="leading" secondItem="ywZ-3p-iJJ" secondAttribute="leading" id="DvZ-sk-QKn"/>
+                                                <constraint firstItem="XMO-ZL-tc3" firstAttribute="centerY" secondItem="njS-x8-GZ9" secondAttribute="centerY" id="Dzu-l1-6Az"/>
+                                                <constraint firstItem="H65-QG-XIB" firstAttribute="leading" secondItem="XMO-ZL-tc3" secondAttribute="trailing" constant="10" id="G91-K8-LGB"/>
                                                 <constraint firstItem="ywZ-3p-iJJ" firstAttribute="top" secondItem="N8A-VH-NhD" secondAttribute="bottom" constant="10" id="NrS-XI-Uyn"/>
                                                 <constraint firstItem="FfD-BR-V1J" firstAttribute="leading" secondItem="FDt-3L-KYC" secondAttribute="leading" id="PjX-eB-pHK"/>
                                                 <constraint firstItem="FDt-3L-KYC" firstAttribute="top" secondItem="HdC-yx-ciV" secondAttribute="bottom" constant="8" id="TP7-rm-a6a"/>
                                                 <constraint firstItem="lw4-Jv-0FF" firstAttribute="centerY" secondItem="N8A-VH-NhD" secondAttribute="centerY" id="TPi-FZ-FQQ"/>
                                                 <constraint firstItem="ZNE-Jw-rrY" firstAttribute="top" secondItem="LxM-JH-7Az" secondAttribute="top" constant="8" id="Xnz-Al-Qkh"/>
+                                                <constraint firstItem="H65-QG-XIB" firstAttribute="centerY" secondItem="XMO-ZL-tc3" secondAttribute="centerY" id="Yxz-zr-E0V"/>
                                                 <constraint firstAttribute="bottom" secondItem="FfD-BR-V1J" secondAttribute="bottom" constant="8" id="czX-hu-M9S"/>
                                                 <constraint firstItem="njS-x8-GZ9" firstAttribute="leading" secondItem="HdC-yx-ciV" secondAttribute="trailing" constant="15" id="dYO-Nl-YvR"/>
                                                 <constraint firstAttribute="trailing" secondItem="ywZ-3p-iJJ" secondAttribute="trailing" constant="8" id="dj5-Yh-Yew"/>
                                                 <constraint firstItem="ywZ-3p-iJJ" firstAttribute="leading" secondItem="LxM-JH-7Az" secondAttribute="leading" constant="8" id="eqU-CF-aaY"/>
                                                 <constraint firstItem="lw4-Jv-0FF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="N8A-VH-NhD" secondAttribute="trailing" constant="8" id="gUD-Zb-3q9"/>
                                                 <constraint firstAttribute="trailing" secondItem="FDt-3L-KYC" secondAttribute="trailing" constant="8" id="hui-gj-afw"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="H65-QG-XIB" secondAttribute="trailing" constant="8" id="kd8-hP-J7F"/>
                                                 <constraint firstItem="FDt-3L-KYC" firstAttribute="leading" secondItem="HdC-yx-ciV" secondAttribute="leading" id="ktV-4y-LpV"/>
+                                                <constraint firstItem="XMO-ZL-tc3" firstAttribute="leading" secondItem="njS-x8-GZ9" secondAttribute="trailing" constant="10" id="rwJ-h0-Njx"/>
                                                 <constraint firstItem="FfD-BR-V1J" firstAttribute="top" secondItem="FDt-3L-KYC" secondAttribute="bottom" constant="8" id="tZP-Kl-yx6"/>
                                                 <constraint firstItem="njS-x8-GZ9" firstAttribute="centerY" secondItem="HdC-yx-ciV" secondAttribute="centerY" id="vTe-An-h8q"/>
                                                 <constraint firstItem="N8A-VH-NhD" firstAttribute="leading" secondItem="ZNE-Jw-rrY" secondAttribute="trailing" constant="10" id="xuq-F7-sVz"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HdC-yx-ciV" secondAttribute="bottom" constant="8" id="yVN-YI-s1l"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionView" destination="FDt-3L-KYC" id="RxU-9T-C7B"/>
                                             <outlet property="commentButton" destination="njS-x8-GZ9" id="ouV-EU-4Ub"/>
                                             <outlet property="infoButton" destination="lw4-Jv-0FF" id="pCJ-ml-baB"/>
+                                            <outlet property="likeButton" destination="XMO-ZL-tc3" id="d8u-AG-YRs"/>
+                                            <outlet property="numberOfLikesLabel" destination="H65-QG-XIB" id="Gsb-4E-Jkm"/>
                                             <outlet property="postImage" destination="ywZ-3p-iJJ" id="TVZ-4D-53n"/>
                                             <outlet property="profileImage" destination="ZNE-Jw-rrY" id="q1r-tC-5lQ"/>
                                             <outlet property="timestampLabel" destination="FfD-BR-V1J" id="Egu-Qn-PHm"/>
@@ -796,6 +823,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="text.bubble.fill.rtl" catalog="system" width="128" height="110"/>

@@ -67,6 +67,7 @@
     
     cell.commentButton.tag = indexPath.row;
     cell.infoButton.tag = indexPath.row;
+    cell.likeButton.tag = indexPath.row;
 
     
     PFUser *user = post[@"author"];
@@ -99,6 +100,7 @@
     }];
     
     cell.captionView.text = post[@"caption"];
+    cell.numberOfLikesLabel.text = [NSString stringWithFormat: @"%@", post[@"likes"]];
     
     // TODO: Format and set createdAtString
     NSDate *date = post.createdAt;
@@ -125,6 +127,24 @@
     }
         
     return cell;
+}
+
+- (IBAction)didTapLike:(id)sender {
+    NSInteger i = [sender tag];
+    PFObject *post = self.postsArray[i];
+//    int likes = [[post objectForKey:@"likes"] intValue];
+    [post incrementKey:@"likes"];
+    
+    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+      if (succeeded) {
+        // The score key has been incremented
+          NSLog(@"succeeded updating post likes");
+          [self.tableView reloadData];
+      } else {
+        // There was a problem, check error.description
+      }
+    }];
+
 }
 
 
