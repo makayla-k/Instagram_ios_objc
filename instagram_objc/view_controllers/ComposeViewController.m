@@ -8,6 +8,7 @@
 #import "ComposeViewController.h"
 #import <Parse/Parse.h>
 #import "Post.h"
+#import "MBProgressHUD.h"
 
 @interface ComposeViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -51,10 +52,12 @@
 - (IBAction)didTapPost:(id)sender {
     
     if(self.postImage.image != nil){
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [Post postUserImage:self.postImage.image withCaption:self.captionView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             NSLog(@"Successfully posted image!");
             [self dismissViewControllerAnimated:YES completion:nil];
             [self.delegate didPost];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     }
     else{
